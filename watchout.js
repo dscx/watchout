@@ -26,7 +26,7 @@ var Enemy = function () {
   this.y = Math.random() * 380 + 10;
   this.id = "e" + Math.floor(Math.random() * 100 + 1);
 };
-var numEnemies = 1; //Math.floor(Math.random() * 18) + 7;
+var numEnemies = Math.floor(Math.random() * 18) + 7;
 var enemies = [];
 for (numEnemies; numEnemies > 0; numEnemies--) {
   enemies.push(new Enemy());
