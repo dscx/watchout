@@ -3,13 +3,13 @@ height: 100% ;
 }
 
 body{
-background-color: #d3d3d3;
+background-color: gray;
 height: 100%;
 
 }
 
 svg {
-background-color: white;
+background-color: #d3d3d3;
 display: block;
 margin: 25px auto;
 }
