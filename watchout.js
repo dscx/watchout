@@ -116,19 +116,28 @@ d3.select('svg').append('rect').data(player)
 ///////////// scoring ///////////// 
 
 setInterval(function(){
- scoreboard.currentscore++;
+ // scoreboard.currentscore++;
 
- if(scoreboard.currentscore > scoreboard.highscore){
-   scoreboard.highscore = scoreboard.currentscore;
-   d3.select('.high span').text(scoreboard.highscore);
- }
- d3.select('.current span').text(scoreboard.currentscore);
+ // if(scoreboard.currentscore > scoreboard.highscore){
+ //   scoreboard.highscore = scoreboard.currentscore;
+ //   d3.select('.high span').text(scoreboard.highscore);
+ // }
+ // d3.select('.current span').text(scoreboard.currentscore);
    
  //scoreboard.highscore;
   playerChar.hit();
 }, 50);
 var timer;
 
+var scoreTest = function(){
+  scoreboard.currentscore += enemies.length;
+  if(scoreboard.currentscore > scoreboard.highscore){
+   scoreboard.highscore = scoreboard.currentscore;
+   d3.select('.high span').text(scoreboard.highscore);
+ }
+ d3.select('.current span').text(scoreboard.currentscore);
+
+};
 
 
 /////////////// Difficulty ////////////////////
@@ -136,7 +145,7 @@ var timer;
 
 var easyDifficulty = function(){
   timer = setInterval(function(){
-
+  scoreTest();
   d3.selectAll('circle').transition().duration(1550).attr({
       'fill': function() {return getRandomColor(); },
       'cx': function(d){ return d.x = randX();},
@@ -147,7 +156,7 @@ var easyDifficulty = function(){
 
 var mediumDifficulty = function(){
   timer = setInterval(function(){
-
+  scoreTest();
   d3.selectAll('circle').transition().duration(1050).attr({
       'fill': function() {return getRandomColor(); },
       'cx': function(d){ return d.x = randX();},
@@ -158,7 +167,7 @@ var mediumDifficulty = function(){
 
 var hardDifficulty = function(){
     timer =setInterval(function(){
-
+  scoreTest();
   d3.selectAll('circle').transition().duration(650).attr({
       'fill': function() {return getRandomColor(); },
       'cx': function(d){ return d.x = randX();},
